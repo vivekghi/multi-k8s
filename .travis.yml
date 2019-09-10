@@ -2,23 +2,23 @@ sudo: required
 services:
   - docker
 
-  before_install:
-    - docker build -t vghildiyal/react-test -f ./client/Dockerfile.dev
+before_install:
+  - docker build -t vghildiyal/react-test -f ./client/Dockerfile.dev
 
-  script:
-    - docker run -e CI=true vghildiyal/react-test npm run test 
+script:
+  - docker run -e CI=true vghildiyal/react-test npm run test 
 
-  after_success
-    - docker build -t vghildiyal/multi-client ./client
-    - docker build -t vghildiyal/multi-nginx ./nginx
-    - docker build -t vghildiyal/multi-server ./server
-    - docker build -t vghildiyal/multi-worker ./worker
+after_success:
+  - docker build -t vghildiyal/multi-client ./client
+  - docker build -t vghildiyal/multi-nginx ./nginx
+  - docker build -t vghildiyal/multi-server ./server
+  - docker build -t vghildiyal/multi-worker ./worker
 
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-    - docker push vghildiyal/multi-client
-    - docker push vghildiyal/multi-nginx
-    - docker push vghildiyal/multi-server
-    - docker push vghildiyal/multi-worker
+  - docker push vghildiyal/multi-client
+  - docker push vghildiyal/multi-nginx
+  - docker push vghildiyal/multi-server
+  - docker push vghildiyal/multi-worker
 
   
