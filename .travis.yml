@@ -21,16 +21,16 @@ after_success:
   - docker push vghildiyal/multi-server
   - docker push vghildiyal/multi-worker
 
-  deploy :
-    provider : elasticbeanstalk
-    region : ap-south-1
-    app: multi-docker
-    env: MultiDocker-env
-    bucket_name: elasticbeanstalk-ap-south-1-801391952744
-    bucket_path: docker-multi
-    on :
-      branch: master
-    access_key_id : 
-      secure: $ACCESS_KEY
-    secret_access_key : 
-      secure: $SECRET_KEY
+deploy :
+  provider : elasticbeanstalk
+  region : ap-south-1
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-ap-south-1-801391952744
+  bucket_path: docker-multi
+  on :
+    branch: master
+  access_key_id : 
+    secure: $ACCESS_KEY
+  secret_access_key : 
+    secure: $SECRET_KEY
