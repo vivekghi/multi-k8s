@@ -33,4 +33,4 @@ after_success:
     access_key_id : 
       secure: $ACCESS_KEY
     secret_access_key : 
-      secure: "$SECRET_KEY"
+      secure: $SECRET_KEY
