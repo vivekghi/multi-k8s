@@ -8,5 +8,8 @@ spec:
   selector:
     component: web
   ports:
-    - port: 3000
-      targetPort: 3000
+    - port: 3000 # other pods can access
+      targetPort: 3000 # port on target pod
+# cluster ip is restrictive - allow any other object inside our 
+#cluster to access what cluster ip is pointed at but not fromm outside world
+#
