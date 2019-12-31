@@ -10,7 +10,9 @@ workflows:
           path: ./client
           profile-name: ecr-user #AWS profile name to be configured.
           repo: sample-flask #Name of an Amazon ECR repository
-          tag: '${CIRCLE_SHA1}'
+          tag: 
+            - '${CIRCLE_SHA1}'
+            - 'latest'
           # Uncomment if the repository does not yet exist
           # create-repo: true
       
