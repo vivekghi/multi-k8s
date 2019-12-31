@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  aws-ecr: circleci/aws-ecr@6.3.0
+  aws-ecr: circleci/aws-ecr@3.1.0
 workflows:
   deployment:
     jobs:
@@ -10,7 +10,7 @@ workflows:
           path: ./client
           profile-name: ecr-user #AWS profile name to be configured.
           repo: sample-flask #Name of an Amazon ECR repository
-          tag: 'latest,{CIRCLE_SHA1}'
+          tag: latest,${CIRCLE_SHA1}
           # Uncomment if the repository does not yet exist
           # create-repo: true
       
