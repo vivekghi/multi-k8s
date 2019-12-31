@@ -5,8 +5,9 @@ orbs:
 workflows:
   deployment:
     jobs:
-      - aws-ecr/build_and_push_image:          
-          dockerfile: Dockerfile
+      - aws-ecr/build_and_push_image:
+          context: ./client         
+          dockerfile: ./client/Dockerfile
           path: ./client/Dockerfile
           profile-name: ecr-user #AWS profile name to be configured.
           repo: sample-flask #Name of an Amazon ECR repository
