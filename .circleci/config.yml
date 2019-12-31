@@ -5,9 +5,7 @@ orbs:
 workflows:
   deployment:
     jobs:
-      - aws-ecr/build_and_push_image:
-          context: mycontext
-          create-repo: true
+      - aws-ecr/build_and_push_image:          
           dockerfile: Dockerfile
           path: ./client/Dockerfile
           profile-name: ecr-user #AWS profile name to be configured.
