@@ -6,7 +6,7 @@ workflows:
   deployment:
     jobs:
       - aws-ecr/build-and-push-image:
-          dockerfile: ./client/Dockerfile
+          dockerfile: Dockerfile
           path: ./client
           profile-name: ecr-user #AWS profile name to be configured.
           repo: sample-flask #Name of an Amazon ECR repository
