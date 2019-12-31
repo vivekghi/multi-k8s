@@ -6,13 +6,11 @@ workflows:
   deployment:
     jobs:
       - aws-ecr/build_and_push_image:
-          account-url: '801391952744.dkr.ecr.us-east-1.amazonaws.com' #{awsAccountNum}.dkr.ecr.us-west-2.amazonaws.com          
           context: mycontext
           create-repo: true
           dockerfile: Dockerfile
           path: pathToMyDockerfile
           profile-name: ecr-user #AWS profile name to be configured.
-          region: 'us-east-1'
           repo: sample-flask #Name of an Amazon ECR repository
           tag: 'latest,${CIRCLE_SHA1}'
           # Uncomment if the repository does not yet exist
